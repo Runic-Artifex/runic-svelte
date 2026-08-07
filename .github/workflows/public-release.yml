@@ -56,6 +56,8 @@ jobs:
           npm version "$PACKAGE_VERSION" --no-git-tag-version --allow-same-version --workspace @runic-artifex/sveltekit
           npm pkg set "gitHead=$GITHUB_SHA" --workspace @runic-artifex/svelte
           npm pkg set "gitHead=$GITHUB_SHA" --workspace @runic-artifex/sveltekit
+          npm pkg set "publishConfig.registry=https://registry.npmjs.org" --workspace @runic-artifex/svelte
+          npm pkg set "publishConfig.registry=https://registry.npmjs.org" --workspace @runic-artifex/sveltekit
           npm pack --workspace @runic-artifex/svelte --pack-destination "$RUNNER_TEMP"
           npm pack --workspace @runic-artifex/sveltekit --pack-destination "$RUNNER_TEMP"
       - uses: Runic-Artifex/.github/.github/actions/validate-release-artifacts@main
